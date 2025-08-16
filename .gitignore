@@ -3,3 +3,7 @@ zmk/
 modules/
 tools/
 .west/
+
+# OS
+.DS_Store
+Thumbs.db
