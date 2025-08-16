@@ -1,5 +1,7 @@
 # Case's ZMK config for Sofle clone purchased off aliexpress
 
+> **Note:** This documentation reflects current understanding and may require further evaluation. File roles and build behaviour should be verified before making changes.
+
 The one I have is a cheap barebones build with no display, rotary, joystick. 
 
 Config tweak was required to get ZMK Studio to connect to the keeb, and that's what I've been using to update the keymapping.
@@ -32,6 +34,17 @@ Config tweak was required to get ZMK Studio to connect to the keeb, and that's w
 - `config/eyelash_sofle.keymap` - Alternative keymap with different mouse settings and extra layer
 
 The board version is the **active keymap** that gets compiled into firmware.
+
+### config/ Directory Usage
+
+The `config/` directory serves multiple purposes:
+
+- **ZMK Studio**: `eyelash_sofle.json` provides layout data
+- **keymap-drawer**: Triggers visual diagram generation on changes
+- **Hardware settings**: `eyelash_sofle.conf` loaded as configuration overlay
+- **Dependencies**: `west.yml` defines ZMK version and modules
+
+**Important**: Due to `board_root: .` in `zephyr/module.yml`, the build uses `boards/` as primary source, making `config/eyelash_sofle.keymap` likely unused by firmware builds.
 
 ## Keymap Update Workflow
 
